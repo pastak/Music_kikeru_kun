@@ -6,7 +6,8 @@
   "scripts": {
     "test": "standard */**.js",
     "watch": "gulp watch",
-    "start": "gulp build && node dist/app/app.js"
+    "start": "gulp build && node dist/app/app.js",
+    "postinstall": "gulp build"
   },
   "repository": {
     "type": "git",

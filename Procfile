@@ -1,1 +1,1 @@
-web: gulp build && node dist/app/app.js
+web: node dist/app/app.js
