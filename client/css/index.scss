@@ -1,0 +1,31 @@
+#application {
+  .search-form {
+    text-align: center;
+
+    .search-keyword {
+      width: 750px;
+      height: 60px;
+      font-size: 40px;
+    }
+    button {
+      font-size: 40px;
+      height: 60px;
+    }
+  }
+  .item-list{
+    text-align: center;
+
+    .item {
+      width: 300px;
+      height: 250px;
+      text-align: left;
+      font-size: 14px;
+      display: inline-block;
+      margin: 5px;
+
+      audio {
+        width: 100%;
+      }
+    }
+  }
+}
