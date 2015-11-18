@@ -1,7 +1,7 @@
 'use strict'
 const fetch = require('node-fetch')
 const OperationHelper = require('apac').OperationHelper
-const Config = require('../../../config/config.json')
+const Config = (process.env.NODE_ENV !== 'production') ? require('../../../config/config.json') : null
 const requestAPI = (url, method) => {
   return new Promise((resolve, reject) => {
     fetch(url).then((res) => {
@@ -19,15 +19,17 @@ const iTunes = (query) => {
 }
 
 const Amazon = (query) => {
-
-  var opHelper = new OperationHelper({
-      awsId:     process.env.AWS_ID || Config.AWS_ID,
-      awsSecret: process.env.AWS_SECRET || Config.AWS_SECRET,
-      assocId:   process.env.ASSOC_ID || Config.ASSOC_ID,
-      version:   '2013-08-01',
-      endPoint: 'ecs.amazonaws.jp'
-  })
   return new Promise((resolve, reject) => {
+    if (!(process.env.AWS_ID || Config.AWS_ID)) {
+      return reject()
+    }
+    var opHelper = new OperationHelper({
+        awsId:     process.env.AWS_ID || Config.AWS_ID,
+        awsSecret: process.env.AWS_SECRET || Config.AWS_SECRET,
+        assocId:   process.env.ASSOC_ID || Config.ASSOC_ID,
+        version:   '2013-08-01',
+        endPoint: 'ecs.amazonaws.jp'
+    })
     opHelper.execute('ItemSearch', {
       'SearchIndex': 'MP3Downloads',
       'Keywords': query.join(' '),
