@@ -1,7 +1,7 @@
 'use strict'
 const fetch = require('node-fetch')
 const OperationHelper = require('apac').OperationHelper
-
+const Config = require('../../../config/config.json')
 const requestAPI = (url, method) => {
   return new Promise((resolve, reject) => {
     fetch(url).then((res) => {
@@ -21,9 +21,9 @@ const iTunes = (query) => {
 const Amazon = (query) => {
 
   var opHelper = new OperationHelper({
-      awsId:     process.env.AWS_ID,
-      awsSecret: process.env.AWS_SECRET,
-      assocId:   process.env.ASSOC_ID,
+      awsId:     process.env.AWS_ID || Config.AWS_ID,
+      awsSecret: process.env.AWS_SECRET || Config.AWS_SECRET,
+      assocId:   process.env.ASSOC_ID || Config.ASSOC_ID,
       version:   '2013-08-01',
       endPoint: 'ecs.amazonaws.jp'
   })

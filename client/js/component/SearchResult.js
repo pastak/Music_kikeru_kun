@@ -12,15 +12,16 @@ export default class SearchResult extends React.Component {
     }
   }
   componentDidMount () {
-    this.updateResult()
+    this.updateResult(this.props.keyword)
   }
   componentWillReceiveProps (nextProps) {
     this.keyword = nextProps.keyword
     this.updateResult()
   }
-  updateResult () {
-    if (!this.keyword) return
-    fetch(`/search?q=${this.keyword}`)
+  updateResult (keyword) {
+    keyword = keyword || this.keyword
+    if (!keyword) return
+    fetch(`/search?q=${keyword}`)
       .then((res) => {return res.json()})
       .then((json) => {
         this.setState({result: json})

@@ -1,6 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 import SearchResult from './SearchResult'
+import RecentKeywords from './RecentKeywords'
 export default class extends React.Component {
   constructor (props) {
     super(props)
@@ -29,7 +30,14 @@ export default class extends React.Component {
           ref='keyword'/>
         <button>Search</button>
       </form>
-      <SearchResult keyword={this.state.keyword} />
+      <hr />
+      <RecentKeywords />
+      <hr />
+      {
+        this.state.keyword
+        ? <SearchResult keyword={this.state.keyword} />
+        : null
+      }
     </div>)
   }
 }
