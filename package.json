@@ -18,7 +18,10 @@
     "url": "https://github.com/pastak/streaming-music/issues"
   },
   "homepage": "https://github.com/pastak/streaming-music#readme",
-  "devDependencies": {
+  "engines": {
+    "node": "4.1.1"
+  },
+  "dependencies": {
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babelify": "^7.2.0",
@@ -31,12 +34,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "standard": "^5.4.1",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1"
-  },
-  "engines": {
-    "node": "4.1.1"
-  },
-  "dependencies": {
+    "watchify": "^3.6.1",
     "apac": "^1.0.0",
     "co-views": "^2.1.0",
     "jade": "^1.11.0",
