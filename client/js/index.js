@@ -12,4 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>,
     document.querySelector('#application')
   )
+  const tweetButton = document.querySelector('#tweetButton')
+  tweetButton.addEventListener('click' , (event) => {
+    event.preventDefault()
+    const tweetUrl = `https://twitter.com/intent/tweet?hashtags=Music_kikeru_kun&related=pastak&text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(location.href)}`
+    window.open(tweetUrl)
+  })
 })

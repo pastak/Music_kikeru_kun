@@ -1,5 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
+const DocumentTitle = require('react-document-title')
+const $ = require('jquery')
 import SearchResult from './SearchResult'
 import RecentKeywords from './RecentKeywords'
 export default class extends React.Component {
@@ -14,7 +16,8 @@ export default class extends React.Component {
     event.preventDefault()
     const keyword = ReactDOM.findDOMNode(this.refs.keyword).value
     this.setState({keyword: keyword, isForm: true})
-    history.pushState('','','/?q='+keyword)
+    history.pushState('','','/?q='+encodeURIComponent(keyword))
+    document.title = `「${keyword}」の曲聞けるの見つける君 | その曲聞けるの見つける君`
   }
   componentDidMount () {
     const keyword = this.props.keyword

@@ -36,7 +36,7 @@ const Amazon = (query) => {
       'BrowseNode': '2381140051',
       'ResponseGroup': 'ItemAttributes, ItemIds, Images,BrowseNodes'
     }, function(err, results) {
-        if (!results.ItemSearchResponse.Items[0].Item) {
+        if (!results.ItemSearchResponse || !results.ItemSearchResponse.Items||!results.ItemSearchResponse.Items[0].Item) {
           return resolve([])
         }
         resolve(results.ItemSearchResponse.Items[0].Item.filter((item) => {
