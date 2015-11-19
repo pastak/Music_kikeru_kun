@@ -8,7 +8,8 @@ export default class SearchResult extends React.Component {
     super(props)
     this.keyword = props.keyoword
     this.state = {
-      result: [{},[]]
+      result: [{},[]],
+      loading: false
     }
   }
   componentDidMount () {
@@ -21,13 +22,19 @@ export default class SearchResult extends React.Component {
   updateResult (keyword) {
     keyword = keyword || this.keyword
     if (!keyword) return
+    this.setState({loading: true})
     fetch(`/search?q=${keyword}${this.props.isForm ? '&from=form':''}`)
       .then((res) => {return res.json()})
       .then((json) => {
-        this.setState({result: json})
+        this.setState({result: json, loading: false})
       })
   }
   render () {
+    if (this.state.loading) {
+      return (<div className='loading-container'>
+        <i className='fa fa-spinner'/> Loading results
+      </div>)
+    }
     return (<div className='result-container'>
       <h2><i className='fa fa-music' /> Results on iTunes</h2>
       <AppleMusic result={this.state.result[0]}/>
