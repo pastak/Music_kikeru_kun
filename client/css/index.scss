@@ -18,20 +18,40 @@
     margin-bottom: 10px;
     font-size: 20px;
   }
-  .item-list{
-    text-align: center;
-
-    .item {
-      width: 300px;
-      height: 250px;
-      text-align: left;
-      font-size: 14px;
-      display: inline-block;
-      margin: 5px;
-
-      audio {
-        width: 100%;
-      }
+  .about {
+    h3 {
+      text-align: center;
+    }
+    div {
+      font-size: 18px;
     }
   }
+  .result-container {
+    h2 {
+      i {
+        margin-right: 3px;
+      }
+    }
+    .item-list{
+      text-align: center;
+
+      .item {
+        width: 300px;
+        height: 250px;
+        text-align: left;
+        font-size: 14px;
+        display: inline-block;
+        margin: 5px;
+
+        audio {
+          width: 100%;
+        }
+      }
+  }
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 18px;
 }

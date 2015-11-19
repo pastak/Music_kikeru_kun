@@ -28,10 +28,10 @@ export default class SearchResult extends React.Component {
       })
   }
   render () {
-    return (<div>
-      <h2>Results on iTunes</h2>
+    return (<div className='result-container'>
+      <h2><i className='fa fa-music' /> Results on iTunes</h2>
       <AppleMusic result={this.state.result[0]}/>
-      <h2>Results on Amazon Prime Music</h2>
+      <h2><i className='fa fa-amazon'/> Results on Amazon Prime Music</h2>
       <AmazonMusic result={this.state.result[1]}/>
     </div>)
   }
