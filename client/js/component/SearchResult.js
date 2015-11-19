@@ -31,7 +31,7 @@ export default class SearchResult extends React.Component {
     return (<div>
       <h2>Results on iTunes</h2>
       <AppleMusic result={this.state.result[0]}/>
-      <h2>Results on Amazon Music</h2>
+      <h2>Results on Amazon Prime Music</h2>
       <AmazonMusic result={this.state.result[1]}/>
     </div>)
   }

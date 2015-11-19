@@ -33,9 +33,15 @@ const Amazon = (query) => {
     opHelper.execute('ItemSearch', {
       'SearchIndex': 'MP3Downloads',
       'Keywords': query.join(' '),
-      'ResponseGroup': 'Medium'
+      'BrowseNode': '2381140051',
+      'ResponseGroup': 'ItemAttributes, ItemIds, Images,BrowseNodes'
     }, function(err, results) {
-        resolve(results.ItemSearchResponse.Items[0].Item)
+        if (!results.ItemSearchResponse.Items[0].Item) {
+          return resolve([])
+        }
+        resolve(results.ItemSearchResponse.Items[0].Item.filter((item) => {
+          return item.ItemAttributes[0].ProductTypeName.indexOf('DOWNLOADABLE_MUSIC_TRACK') !== -1
+        }))
     })
   })
 }
