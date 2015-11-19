@@ -18,8 +18,12 @@ export default class AppleMusic extends React.Component {
           {item.trackName}
         </a><br />
         <a target='_blank' href={item.collectionViewUrl} className='item-collection-title'>{item.collectionName}</a><br />
-        <span>Apple Music: {item.isStreamable.toString()}</span><br />
-        <a onClick={this.openItunes.bind(this)} href={item.trackViewUrl}>Open on iTunes</a><br />
+        <a target='_blank' href={item.artistViewUrl}>{item.artistName}</a><br />
+        <span>Apple Music: {item.isStreamable
+          ? <i className='fa fa-check' style={{color: 'red'}}/>
+          : <i className='fa fa-times' style={{color: 'blue'}}/>
+        }</span>
+        <a className='btn btn-default open-itunes' onClick={this.openItunes.bind(this)} href={item.trackViewUrl}>Open on iTunes</a><br />
         <audio src={item.previewUrl} controls="true"/>
       </div>)
     })

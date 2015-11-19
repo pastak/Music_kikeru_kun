@@ -29,7 +29,7 @@ export default class extends React.Component {
           placeholder='Keywords'
           className='search-keyword'
           ref='keyword'/>
-        <button><i className='fa fa-search' /></button>
+        <button className='btn btn-default btn-lg'><i className='fa fa-search' /></button>
       </form>
       <hr />
       <RecentKeywords />
