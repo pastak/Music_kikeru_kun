@@ -21,7 +21,7 @@ export default class SearchResult extends React.Component {
   updateResult (keyword) {
     keyword = keyword || this.keyword
     if (!keyword) return
-    fetch(`/search?q=${keyword}`)
+    fetch(`/search?q=${keyword}${this.props.isForm ? '&from=form':''}`)
       .then((res) => {return res.json()})
       .then((json) => {
         this.setState({result: json})

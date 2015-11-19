@@ -25,9 +25,11 @@ router
   })
   .get('/search', function *(next) {
     this.set('Content-Type', 'application/json')
-    const q = queryString.parse(this.querystring)['q']
-    this.body = yield searchMusic(q)
-    redis.lpush('recent-keyword', q)
+    const q = queryString.parse(this.querystring)
+    this.body = yield searchMusic(q['q'])
+    if (q['from'] === 'form') {
+      redis.lpush('recent-keyword', q['q'])
+    }
   })
   .get('/recent.json', function *(next) {
     this.set('Content-Type', 'application/json')

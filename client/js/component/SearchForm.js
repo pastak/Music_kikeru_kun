@@ -6,13 +6,14 @@ export default class extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      keyword: ''
+      keyword: '',
+      isForm: false
     }
   }
   onSubmit (event) {
     event.preventDefault()
     const keyword = ReactDOM.findDOMNode(this.refs.keyword).value
-    this.setState({keyword: keyword})
+    this.setState({keyword: keyword, isForm: true})
     history.pushState('','','/?q='+keyword)
   }
   componentDidMount () {
@@ -35,7 +36,7 @@ export default class extends React.Component {
       <hr />
       {
         this.state.keyword
-        ? <SearchResult keyword={this.state.keyword} />
+        ? <SearchResult keyword={this.state.keyword} isForm={this.state.isForm}/>
         : null
       }
     </div>)
