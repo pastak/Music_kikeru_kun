@@ -36,7 +36,7 @@ export default class extends React.Component {
                 className='form-control input-lg search-keyword'
                 ref='keyword'/>
               <div className='input-group-btn'>
-                <button className='btn btn-default btn-lg'><i className='fa fa-search' /></button>
+                <button className='btn btn-default btn-lg' onClick={this.onSubmit.bind(this)}><i className='fa fa-search' /></button>
               </div>
             </div>
           </form>

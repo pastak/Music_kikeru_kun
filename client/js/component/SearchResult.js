@@ -6,24 +6,24 @@ import AmazonMusic from './AmazonMusic'
 export default class SearchResult extends React.Component {
   constructor (props) {
     super(props)
-    this.keyword = props.keyoword
     this.state = {
       result: [{},[]],
       loading: false
     }
   }
   componentDidMount () {
-    this.updateResult(this.props.keyword)
-  }
-  componentWillReceiveProps (nextProps) {
-    this.keyword = nextProps.keyword
     this.updateResult()
   }
-  updateResult (keyword) {
-    keyword = keyword || this.keyword
+  componentWillReceiveProps (nextProps) {
+    this.updateResult(nextProps)
+  }
+  updateResult (props) {
+    props = props || this.props
+    const keyword = props.keyword
     if (!keyword) return
     this.setState({loading: true})
-    fetch(`/search?q=${keyword}${this.props.isForm ? '&from=form':''}`)
+    const isForm = props.isForm || this.props.isForm
+    fetch(`/search?q=${keyword}${isForm ? '&from=form':''}`)
       .then((res) => {return res.json()})
       .then((json) => {
         this.setState({result: json, loading: false})

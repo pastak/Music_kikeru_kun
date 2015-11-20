@@ -13,7 +13,7 @@ const render = views(path.resolve(__dirname, '../../app/views'), {map: {html: 'j
 
 const getRecentKeyword = function () {
   return (new Promise((solve) => {
-    redis.lrange('recent-keyword', -10, -1, (err, obj) => {
+    redis.lrange('recent-keyword', 0, 10, (err, obj) => {
       if (err) {
         console.error(err)
         solve([])
