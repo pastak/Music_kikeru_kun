@@ -26,14 +26,24 @@ export default class extends React.Component {
   }
   render () {
     return (<div>
-      <form className='row search-form' onSubmit={this.onSubmit.bind(this)}>
-        <input
-          type='text'
-          placeholder='Keywords'
-          className='search-keyword'
-          ref='keyword'/>
-        <button className='btn btn-default btn-lg'><i className='fa fa-search' /></button>
-      </form>
+      <div className='row'>
+        <div className='col-sm-2' />
+        <div className='col-sm-8'>
+          <form className='search-form' onSubmit={this.onSubmit.bind(this)}>
+            <div className='input-group'>
+              <input
+                type='text'
+                placeholder='Keywords'
+                className='form-control input-lg search-keyword'
+                ref='keyword'/>
+              <div className='input-group-btn'>
+                <button className='btn btn-default btn-lg'><i className='fa fa-search' /></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className='col-sm-2' />
+      </div>
       <hr />
       <RecentKeywords />
       <hr />
