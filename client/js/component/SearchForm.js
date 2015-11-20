@@ -1,6 +1,5 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-const DocumentTitle = require('react-document-title')
 const $ = require('jquery')
 import SearchResult from './SearchResult'
 import RecentKeywords from './RecentKeywords'
