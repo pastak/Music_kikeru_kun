@@ -2,8 +2,14 @@
   height: 35px;
   vertical-align: middle;
 
-  .hatebu-button {
-    height: 100%;
+  .share-button {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 7px;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 #application {
