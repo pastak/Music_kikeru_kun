@@ -41,6 +41,20 @@ export default class extends React.Component {
             </div>
           </form>
         </div>
+        {
+          (process.env.NODE_ENV === 'production')
+          ? <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4787283240527546"
+               data-ad-slot="6939564609"
+               data-ad-format="auto">
+              </ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          : null
+        }
         <div className='col-sm-2' />
       </div>
       <hr />
