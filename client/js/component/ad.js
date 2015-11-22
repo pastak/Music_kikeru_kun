@@ -13,7 +13,7 @@ export default class extends React.Component {
            data-ad-slot='6939564609'
            data-ad-format='auto'>
         </ins>
-        <script dangerouslySetInnerHTML={'(adsbygoogle = window.adsbygoogle || []).push({});'}/>
+        <script dangerouslySetInnerHTML={{__html: '(adsbygoogle = window.adsbygoogle || []).push({});'}}/>
       </div>)
   }
 }
