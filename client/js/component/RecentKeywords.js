@@ -15,12 +15,15 @@ export default class RecentKeywords extends React.Component {
       this.setState({recent: json})
     })
   }
+  onClick (keyword) {
+    ga('send', 'event', 'recent-keyword', 'click', keyword)
+  }
   render () {
     if (!this.state.recent) return false
     return (<div className='recent-keywords'>Recent Keywords:
     {this.state.recent.map((item, index) => {
       return (<span key={index} className='recent-keyword'>
-          <a href={`/?q=${item}`}>{item}</a>
+          <a href={`/?q=${item}`} onClick={ () => this.onClick(item) }>{item}</a>
         {(this.state.recent.length - 1 > index) ? ' | ' : ''}</span>)
     })}
     </div>)
