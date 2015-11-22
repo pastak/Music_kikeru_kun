@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom')
 const $ = require('jquery')
 import SearchResult from './SearchResult'
 import RecentKeywords from './RecentKeywords'
-import ad from './ad'
+import GoogleAd from './ad'
 export default class extends React.Component {
   constructor (props) {
     super(props)
@@ -45,7 +45,7 @@ export default class extends React.Component {
         <div className='col-sm-2' />
       </div>
       {(document.documentElement.dataset.env === 'production')
-        ? (<ad />)
+        ? (<GoogleAd />)
         : null}
       <hr />
       <RecentKeywords />
