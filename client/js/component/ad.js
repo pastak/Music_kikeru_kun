@@ -1,3 +1,6 @@
+const React = require('react')
+const ReactDOM = require('react-dom')
+
 export default class extends React.Component {
   constructor (props) {
     super(props)
