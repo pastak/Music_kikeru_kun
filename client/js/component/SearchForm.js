@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom')
 const $ = require('jquery')
 import SearchResult from './SearchResult'
 import RecentKeywords from './RecentKeywords'
+import ad from './ad'
 export default class extends React.Component {
   constructor (props) {
     super(props)
@@ -44,17 +45,7 @@ export default class extends React.Component {
         <div className='col-sm-2' />
       </div>
       {(document.documentElement.dataset.env === 'production')
-        ? (<div className='ad'>
-            <ins className="adsbygoogle"
-               style={{display:'block'}}
-               data-ad-client='ca-pub-4787283240527546'
-               data-ad-slot='6939564609'
-               data-ad-format='auto'>
-            </ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>)
+        ? (<ad />)
         : null}
       <hr />
       <RecentKeywords />
