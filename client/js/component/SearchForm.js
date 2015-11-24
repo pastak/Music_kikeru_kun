@@ -18,7 +18,7 @@ export default class extends React.Component {
     this.setState({keyword: keyword, isForm: true})
     history.pushState('','','/?q='+encodeURIComponent(keyword))
     document.title = `「${keyword}」の曲聞けるの見つける君 | その曲聞けるの見つける君`
-    ga('send','pageview', `http://music-kikeru-kun.pastak.net/?q=${encodeURIComponent(keyword)}`)
+    ga('send','pageview', `/?q=${encodeURIComponent(keyword)}`)
   }
   componentDidMount () {
     const keyword = this.props.keyword
