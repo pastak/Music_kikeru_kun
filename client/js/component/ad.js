@@ -5,6 +5,9 @@ export default class extends React.Component {
   constructor (props) {
     super(props)
   }
+  componentDidMount () {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
   render () {
       return (<div className='ad'>
         <ins className='adsbygoogle'
@@ -13,7 +16,6 @@ export default class extends React.Component {
            data-ad-slot='6939564609'
            data-ad-format='auto'>
         </ins>
-        <script dangerouslySetInnerHTML={{__html: '(adsbygoogle = window.adsbygoogle || []).push({});'}}/>
       </div>)
   }
 }
