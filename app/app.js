@@ -28,7 +28,7 @@ router
     const q = queryString.parse(this.querystring)['q']
     const title = q
       ? `「${q}」の曲聞けるの見つける君 | その曲聞けるの見つける君`
-      : 'その曲聞けるの見つける君'
+      : 'その曲聞けるの見つける君 - iTunes Store・Amazon Music まとめて検索'
     this.body = yield render('index.jade', {title: title})
   })
   .get('/search', function *(next) {
