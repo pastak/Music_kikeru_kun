@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>music-kikeru-kun</ShortName>
+  <Description>music-kikeru-kun</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Url type="text/html" template="http://music-kikeru-kun.pastak.net/?q={searchTerms}"/>
+</OpenSearchDescription>
